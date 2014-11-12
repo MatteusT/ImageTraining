@@ -44,7 +44,7 @@ Points = zeros(numClust,nframes);
 %
 for iframe = 1:nframes
     for iclust = 1:numClust
-        Points(iclust,iframe) = sum(sum(rawStack(Pset(clustMembsCell{iclust},1),Pset(clustMembsCell{iclust},2),iframe)));
+        Points(iclust,iframe) = norm(rawStack(Pset(clustMembsCell{iclust},1),Pset(clustMembsCell{iclust},2),iframe));
     end
 end
 
@@ -53,5 +53,5 @@ end
 figure(1010)
 hold on
 
-plot3(Points')
+plot(Points(1,:))
 
